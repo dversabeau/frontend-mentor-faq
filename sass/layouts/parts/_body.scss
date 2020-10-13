@@ -1,0 +1,184 @@
+*{
+  box-sizing: border-box;
+}
+
+.page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient($soft-violet, $soft-blue);
+  min-height: 100vh;
+  width: 100%;
+  p, label{
+    font-family: $kumbh;
+  }
+  p{
+    color: $dark-grayish-blue;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 0;
+  }
+  label{
+    font-size: 13px;
+  }
+
+}
+
+h1{
+  font-family: $kumbh;
+  font-weight: 700;
+  text-align: center;
+}
+
+.main-container{
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 0 25px 50px 25px;
+  margin: 120px 25px 50px 25px;
+  box-shadow: 0 30px 25px rgba(0,0,0,0.2) ;
+  width: 100%;
+  max-width: 600px;
+}
+
+.images-mobile-container{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+
+  margin-bottom: 120px;
+}
+
+.images-desktop-container{
+  display: none;
+}
+
+.image-shadow-mobile, .image-illustration-mobile{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+}
+
+.image-illustration-mobile{
+  top: 0;
+  left: -13px;
+  transform: translateY(-54%);
+}
+
+.image-shadow-mobile{
+  top: 0;
+  left: 0;
+}
+
+.image-illustration-box-desktop{
+  display: none;
+}
+
+.text-container{
+  border-bottom: solid 1px $light-grayish-blue;
+  padding: 20px 0 ;
+}
+
+.text-container>input[name='collapse']{
+  display: none;
+}
+
+.expandable-content {
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s;
+  padding-right: 25px;
+}
+
+.text-container>label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: $very-dark-desaturated-blue;
+}
+
+.text-container>label:after{
+  content: url("images/icon-arrow-down.svg");
+}
+
+.text-container>input[name="collapse"]:checked ~ .expandable-content {
+  max-height: 100px;
+  transition: max-height 0.3s;
+}
+
+.text-container>input[name="collapse"]:checked ~ label{
+  font-weight: bold;
+  color: black !important;
+}
+
+.text-container>input[name="collapse"]:checked ~ label:after{
+  transform: rotate(180deg);
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+  .page{
+
+    padding: 50px;
+  }
+
+  .main-container{
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    max-width: 1000px;
+  }
+
+  .images-mobile-container{
+    display: none;
+  }
+
+  .images-desktop-container{
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .faq-container{
+    margin: 50px 100px 100px 100px;
+    h1{
+      text-align: left;
+    }
+  }
+
+  .image-shadow-desktop,
+  .image-illustration-desktop,
+  .image-illustration-box-desktop{
+    position: absolute;
+  }
+
+  .image-shadow-desktop{
+    top: 50%;
+    left: 0;
+    transform: translate(-60%, -60%);
+  }
+
+  .image-illustration-desktop{
+    top: 50%;
+    left: 0;
+    transform: translate(-17%, -52%);
+  }
+
+  .image-illustration-box-desktop{
+    top: 50%;
+    left: 0;
+    transform: translate(-49%, -27%);
+    display: block;
+  }
+}
