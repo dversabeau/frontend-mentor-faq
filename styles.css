@@ -439,6 +439,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
   color: #1d1e35;
+  cursor: pointer;
 }
 
 .text-container > label:after {
